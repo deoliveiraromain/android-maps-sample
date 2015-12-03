@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BisonFuteDemo</string>
+    <string name="title_activity_main">Bison Futé Démo</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="nav_view_location">Localisation</string>
+    <string name="nav_view_traffic">Trafic</string>
+    <string name="nav_view_events">Evènements</string>
+
+    <string name="nav_view_settings">Paramètres</string>
+</resources>
