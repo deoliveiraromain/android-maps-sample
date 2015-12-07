@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <group android:id="@+id/menu_drawer_1">
+        <item
+            android:id="@+id/nav_traffic"
+            android:checkable="false"
+            android:icon="@drawable/ic_traffic_black_24dp"
+            android:title="@string/nav_view_traffic" />
+        <item
+            android:id="@+id/nav_events"
+            android:checkable="false"
+            android:icon="@drawable/ic_warning_black_24dp"
+            android:title="@string/nav_view_events" />
+        <item android:title="@string/nav_view_settings">
+            <menu>
+                <item
+                    android:id="@+id/nav_settings"
+                    android:icon="@drawable/ic_settings_black_24dp"
+                    android:title="@string/action_settings" />
+            </menu>
+        </item>
+    </group>
+    <!-- <group
+         android:id="@+id/menu_drawer_2"
+        >
+         <!-<item android:title="@string/nav_view_settings">
+             <menu>
+                 <item
+                     android:id="@+id/nav_settings"
+                     android:icon="@drawable/ic_settings_black_24dp"
+                     android:title="@string/action_settings" />
+             </menu>
+         </item>
+         -->
+    <!--<item-->
+    <!--android:id="@+id/nav_settings"-->
+    <!--android:icon="@drawable/ic_settings_black_24dp"-->
+    <!--android:title="@string/action_settings"-->
+    <!--android:checkable="true"/>-->
+
+    <!--</group>-->
+
+    <!--<group android:checkableBehavior="single">
+
+    </group>
+    -->
+
+
+</menu>
