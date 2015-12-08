@@ -9,6 +9,5 @@
         android:state_enabled="true"
         android:drawable="@drawable/button_shape_focused" />
     <item
-        android:state_enabled="true"
         android:drawable="@drawable/button_shape" />
 </selector>
