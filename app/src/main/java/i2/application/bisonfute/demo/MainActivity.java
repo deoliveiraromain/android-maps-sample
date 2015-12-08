@@ -1,5 +1,6 @@
 package i2.application.bisonfute.demo;
 
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -21,6 +22,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -92,7 +95,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
 
         } else if (id == R.id.nav_settings) {
-
+            Intent i = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(i);
+            overridePendingTransition(R.animator.right_in, R.animator.left_out);
         }
 
         if (id != R.id.nav_settings) {
@@ -110,36 +115,45 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     private void displayEvents(boolean isEventsDisplayed) {
         if (isEventsDisplayed) {
+            BitmapDescriptor icon =
+                    BitmapDescriptorFactory.fromResource(R.drawable.ic_working);
+
             mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(44.8417531, -0.5691530999999941))
                             .title("Miroir d'eau")
                             .snippet("Miroir d'eau de bordeaux")
+                            .icon(icon)
             );
             mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(44.844469, -0.5737920000000258))
                             .title("Quinconces")
                             .snippet("Place des quinconces")
+                            .icon(icon)
             );
             mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(44.8268502, -0.5560778999999911))
                             .title("Gare Saint Jean")
                             .snippet("Gare de Bordeaux")
+                            .icon(icon)
             );
 
             mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(44.83731700000001, -0.5771620000000439))
                             .title("Gare Saint Jean")
                             .snippet("Gare de Bordeaux")
+                            .icon(icon)
             );
             mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(44.83731700000001, -0.5771620000000439))
                             .title("HDV")
                             .snippet("Hote de ville de Bordeaux")
+                            .icon(icon)
             );
-            mMap.addMarker(new MarkerOptions()
+            Marker marker = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(44.830013, -0.5963850000000548))
                             .title("Stade Chaban Delmas")
                             .snippet("Stade de Bordeaux")
+                            .icon(icon)
             );
         } else {
             mMap.clear();
@@ -172,13 +186,34 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     private void setupMapUi() {
         LatLng bordeaux = new LatLng(44.8404400, -0.5805000);
-        //mMap.addMarker(new MarkerOptions().position(bordeaux).title("Marker in Bordeaux"));
         mMap.getUiSettings().setRotateGesturesEnabled(true);
         mMap.getUiSettings().setZoomControlsEnabled(true);
-        mMap.setOnMyLocationButtonClickListener(onMyLocationListener());
+        //mMap.setOnMyLocationButtonClickListener(onMyLocationListener());
         //mMap.setMyLocationEnabled(true);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(bordeaux));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+        mMap.setOnMarkerClickListener(onMarkerClickListener());
+    }
+
+    private GoogleMap.OnMarkerClickListener onMarkerClickListener(){
+        return new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Log.i(this.getClass().getName(), "Marker Clicked : " + marker.getTitle());
+                return false;
+            }
+        };
+    }
+
+    private GoogleMap.OnMyLocationButtonClickListener onMyLocationListener() {
+        return
+                new GoogleMap.OnMyLocationButtonClickListener() {
+                    @Override
+                    public boolean onMyLocationButtonClick() {
+                        Log.i(this.getClass().getName(), "LOCATION BUTTON CLICKED.");
+                        return false;
+                    }
+                };
     }
 
     private synchronized void buildGoogleApiClient() {
@@ -191,13 +226,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     @Override
     public void onConnected(Bundle bundle) {
-        Log.i(this.getClass().getName(), "Google Api Client Connected");
+        Log.i(this.getClass().getName(), "Google Api Client Connected.");
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, buildLocationRequest(), this);
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-
+        Log.i(this.getClass().getName(), "Google Api Client Suspended.");
     }
 
     private LocationRequest buildLocationRequest() {
@@ -215,18 +250,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             Log.i(this.getClass().getName(), "Location X : " + location.getLatitude());
             Log.i(this.getClass().getName(), "Location Y : " + location.getLongitude());
         }
-    }
-
-
-    private GoogleMap.OnMyLocationButtonClickListener onMyLocationListener() {
-        return
-                new GoogleMap.OnMyLocationButtonClickListener() {
-                    @Override
-                    public boolean onMyLocationButtonClick() {
-                        Log.i(this.getClass().getName(), "LOCATION BUTTON CLICKED.");
-                        return false;
-                    }
-                };
     }
 
 
