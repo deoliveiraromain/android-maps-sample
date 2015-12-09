@@ -15,7 +15,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        style="@style/BfButton"
+        style="?button"
         android:id="@+id/buttonSettings"
         android:text="TEST"
        />

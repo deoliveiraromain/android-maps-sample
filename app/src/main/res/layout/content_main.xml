@@ -8,10 +8,34 @@
     tools:context="i2.application.bisonfute.demo.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <FrameLayout
-        android:id="@+id/mainContent"
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sliding_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        sothree:theme="@style/AppTheme"
+        sothree:umanoDragView="@+id/dragView"
+        sothree:umanoFadeColor="@android:color/transparent"
+        sothree:umanoOverlay="true"
+        sothree:umanoPanelHeight="?attr/actionBarSize"
+        sothree:umanoParallaxOffset="100dp"
+        sothree:umanoScrollableView="@+id/list"
+        sothree:umanoShadowHeight="0dp">
+
+        <FrameLayout
+            android:id="@+id/mainContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:id="@+id/sliding_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/info_content" />
+
+        </RelativeLayout>
+
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
 </RelativeLayout>
