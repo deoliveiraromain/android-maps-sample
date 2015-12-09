@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -94,6 +95,44 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         setupDrawerContent();
 
         setupMap();
+        mSlidingLayout.setPanelSlideListener(new SlidingUpPanelLayout.PanelSlideListener() {
+            @Override
+            public void onPanelSlide(View view, float v) {
+               // if (v == 0.5f) {
+                    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                    Animator anim = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.fade_in);
+                    anim.setTarget(fab);
+                    anim.start();
+              //  }
+            }
+
+            @Override
+            public void onPanelCollapsed(View view) {
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                Animator anim = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.fade_out);
+                anim.setTarget(fab);
+                anim.start();
+            }
+
+            @Override
+            public void onPanelExpanded(View view) {
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                Animator anim = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.fade_in);
+                anim.setTarget(fab);
+                anim.start();
+
+            }
+
+            @Override
+            public void onPanelAnchored(View view) {
+
+            }
+
+            @Override
+            public void onPanelHidden(View view) {
+
+            }
+        });
 
         hideSlidingLayout(mSlidingContent);
         // mSlidingLayout.setEnabled(false);
@@ -174,35 +213,35 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 BitmapDescriptorFactory.fromResource(R.drawable.ic_working);
 
         mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(44.8417531, -0.5691530999999941))
-                        .title("Miroir d'eau")
-                        .snippet("Miroir d'eau de bordeaux")
-                        .icon(icon)
+                .position(new LatLng(44.8417531, -0.5691530999999941))
+                .title("Miroir d'eau")
+                .snippet("Miroir d'eau de bordeaux")
+                .icon(icon)
         );
         mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(44.844469, -0.5737920000000258))
-                        .title("Quinconces")
-                        .snippet("Place des quinconces")
-                        .icon(icon)
+                .position(new LatLng(44.844469, -0.5737920000000258))
+                .title("Quinconces")
+                .snippet("Place des quinconces")
+                .icon(icon)
         );
         mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(44.8268502, -0.5560778999999911))
-                        .title("Gare Saint Jean")
-                        .snippet("Gare de Bordeaux")
-                        .icon(icon)
+                .position(new LatLng(44.8268502, -0.5560778999999911))
+                .title("Gare Saint Jean")
+                .snippet("Gare de Bordeaux")
+                .icon(icon)
         );
 
         mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(44.83731700000001, -0.5771620000000439))
-                        .title("HDV")
-                        .snippet("Hote de ville de Bordeaux")
-                        .icon(icon)
+                .position(new LatLng(44.83731700000001, -0.5771620000000439))
+                .title("HDV")
+                .snippet("Hote de ville de Bordeaux")
+                .icon(icon)
         );
         mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(44.830013, -0.5963850000000548))
-                        .title("Stade Chaban Delmas")
-                        .snippet("Stade de Bordeaux")
-                        .icon(icon)
+                .position(new LatLng(44.830013, -0.5963850000000548))
+                .title("Stade Chaban Delmas")
+                .snippet("Stade de Bordeaux")
+                .icon(icon)
         );
     }
 
@@ -267,10 +306,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 //                    Log.i(this.getClass().getName(), "Second time Marker Clicked : " + marker.getTitle());
 //                    mSlidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
 //                } else {
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 15));
-                    mSlidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
-                    showSlidingLayout(mSlidingContent);
-                    setSlidingContent(marker);
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 15));
+                mSlidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
+                showSlidingLayout(mSlidingContent);
+                setSlidingContent(marker);
 //                }
                 return true;
             }
@@ -281,7 +320,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         mSlidingContentTextTitle.setText(marker.getTitle());
         mSlidingContentTextSnippet.setText(marker.getSnippet() + "  " + marker.getPosition().latitude + "  " + marker.getPosition().longitude);
         //mSlidingToolbar.setTitle(marker.getTitle());
-        Toolbar toolbarInfo = (Toolbar)findViewById(R.id.toolbar_info);
+        Toolbar toolbarInfo = (Toolbar) findViewById(R.id.toolbar_info);
         toolbarInfo.setTitle(marker.getTitle());
     }
 
@@ -305,7 +344,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     private synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
-                        // .addOnConnectionFailedListener(this)
+                // .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
     }
