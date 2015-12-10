@@ -48,6 +48,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="i2.application.bisonfute.demo.MainActivity" />
         </activity>
+        <activity
+            android:name=".MentionsLegalesActivity"
+            android:label="@string/title_activity_mention"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

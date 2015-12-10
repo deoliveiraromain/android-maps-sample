@@ -2,13 +2,11 @@ package i2.application.bisonfute.demo;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -19,13 +17,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.transition.Explode;
-import android.transition.Visibility;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -43,6 +38,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, LocationListener {
 
@@ -65,7 +62,22 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        setSupportActionBar(toolbar);
+
+        setupDrawerLayout();
+
+        setupNavigationView();
+
+        setupSlidingLayout();
+
+        setupMap();
+
+
+    }
+
+    private void setupSlidingLayout() {
 
         mSlidingLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
         mSlidingContent = (RelativeLayout) findViewById(R.id.sliding_content);
@@ -75,35 +87,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         mSlidingAppBar = (AppBarLayout) findViewById(R.id.appBar_info);
         mSlidingLayout.setAnchorPoint(0.5f);
 
-        setSupportActionBar(toolbar);
-
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
-
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        setupDrawerLayout();
-
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        setupDrawerContent();
-
-        setupMap();
         mSlidingLayout.setPanelSlideListener(new SlidingUpPanelLayout.PanelSlideListener() {
             @Override
             public void onPanelSlide(View view, float v) {
-               // if (v == 0.5f) {
-                    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-                    Animator anim = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.fade_in);
-                    anim.setTarget(fab);
-                    anim.start();
-              //  }
+                // if (v == 0.5f) {
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                Animator anim = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.fade_in);
+                anim.setTarget(fab);
+                anim.start();
+                //  }
             }
 
             @Override
@@ -134,12 +126,28 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             }
         });
 
-        hideSlidingLayout(mSlidingContent);
+        hideSlidingLayout();
         // mSlidingLayout.setEnabled(false);
         // mSlidingContent.setVisibility(View.GONE);
+
+    }
+
+    private void hideSlidingLayout() {
+        mSlidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
+        Animator anim = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.fade_out);
+        anim.setTarget(mSlidingContent);
+        anim.start();
+    }
+
+    private void showSlidingLayout() {
+        mSlidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
+        Animator anim = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.fade_in);
+        anim.setTarget(mSlidingContent);
+        anim.start();
     }
 
     private void setupDrawerLayout() {
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -147,7 +155,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
 
-    private void setupDrawerContent() {
+    private void setupNavigationView() {
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -170,25 +179,18 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
 
         } else if (id == R.id.nav_settings) {
-            Intent i = new Intent(MainActivity.this, SettingsActivity.class);
-            // inside your activity (if you did not enable transitions in your theme)
-            //getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-            // set an exit transition
-            //getWindow().setExitTransition(new Explode());
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                startActivity(i);
-                overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            } else {
-                ActivityCompat.startActivity(MainActivity.this, i,
-                        ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
-            }
+            AnimUtils.startActivityWithAnimation(MainActivity.this, SettingsActivity.class);
+
+        } else if (id == R.id.nav_mentions) {
+            AnimUtils.startActivityWithAnimation(MainActivity.this, MentionsLegalesActivity.class);
+
+        } else if (id == R.id.nav_date) {
 
         }
-
-        if (id != R.id.nav_settings) {
+        if (id == R.id.nav_traffic || id == R.id.nav_events) {
             menuItem.setChecked(!menuItem.isChecked());
-
         }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
@@ -209,40 +211,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
     private void drawEvents() {
-        BitmapDescriptor icon =
-                BitmapDescriptorFactory.fromResource(R.drawable.ic_working);
-
-        mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(44.8417531, -0.5691530999999941))
-                .title("Miroir d'eau")
-                .snippet("Miroir d'eau de bordeaux")
-                .icon(icon)
-        );
-        mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(44.844469, -0.5737920000000258))
-                .title("Quinconces")
-                .snippet("Place des quinconces")
-                .icon(icon)
-        );
-        mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(44.8268502, -0.5560778999999911))
-                .title("Gare Saint Jean")
-                .snippet("Gare de Bordeaux")
-                .icon(icon)
-        );
-
-        mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(44.83731700000001, -0.5771620000000439))
-                .title("HDV")
-                .snippet("Hote de ville de Bordeaux")
-                .icon(icon)
-        );
-        mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(44.830013, -0.5963850000000548))
-                .title("Stade Chaban Delmas")
-                .snippet("Stade de Bordeaux")
-                .icon(icon)
-        );
+        List<MarkerOptions> liste = RandomPointsProvider.getRandomBordeauxPoints();
+        for (MarkerOptions marker : liste) {
+            mMap.addMarker(marker);
+        }
     }
 
     private void setupMap() {
@@ -283,17 +255,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         return new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
-                hideSlidingLayout(mSlidingContent);
-                mSlidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.HIDDEN);
+                hideSlidingLayout();
+
             }
         };
     }
 
-    private void hideSlidingLayout(View view) {
-        Animator anim = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.fade_out);
-        anim.setTarget(view);
-        anim.start();
-    }
 
     private GoogleMap.OnMarkerClickListener onMarkerClickListener() {
         return new GoogleMap.OnMarkerClickListener() {
@@ -301,16 +268,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             public boolean onMarkerClick(Marker marker) {
                 Log.i(this.getClass().getName(), "Marker Clicked : " + marker.getTitle());
                 Log.i(this.getClass().getName(), "Camera Position : " + mMap.getCameraPosition().target.latitude + mMap.getCameraPosition().target.longitude);
-//                if (mMap.getCameraPosition().target.equals(marker.getPosition())) {
-//                    //c'est le deuxieme click sur le marker donc on etent le layout
-//                    Log.i(this.getClass().getName(), "Second time Marker Clicked : " + marker.getTitle());
-//                    mSlidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
-//                } else {
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 15));
-                mSlidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
-                showSlidingLayout(mSlidingContent);
+                showSlidingLayout();
                 setSlidingContent(marker);
-//                }
                 return true;
             }
         };
@@ -324,27 +284,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         toolbarInfo.setTitle(marker.getTitle());
     }
 
-    private void showSlidingLayout(View view) {
-        Animator anim = AnimatorInflater.loadAnimator(MainActivity.this, R.animator.fade_in);
-        anim.setTarget(view);
-        anim.start();
-    }
-
-    private GoogleMap.OnMyLocationButtonClickListener onMyLocationListener() {
-        return
-                new GoogleMap.OnMyLocationButtonClickListener() {
-                    @Override
-                    public boolean onMyLocationButtonClick() {
-                        Log.i(this.getClass().getName(), "LOCATION BUTTON CLICKED.");
-                        return false;
-                    }
-                };
-    }
 
     private synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
-                // .addOnConnectionFailedListener(this)
+                        // .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
     }
@@ -399,9 +343,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            AnimUtils.startActivityWithAnimation(MainActivity.this, SettingsActivity.class);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

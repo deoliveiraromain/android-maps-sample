@@ -22,6 +22,16 @@
                     android:title="@string/action_settings" />
             </menu>
         </item>
+        <item
+            android:id="@+id/nav_mentions"
+            android:checkable="false"
+            android:icon="@drawable/ic_book_black_24dp"
+            android:title="@string/nav_view_mentions" />
+        <item
+            android:id="@+id/nav_date"
+            android:checkable="false"
+            android:icon="@drawable/ic_today_black_24dp"
+            android:title="@string/nav_view_date" />
     </group>
     <!-- <group
          android:id="@+id/menu_drawer_2"

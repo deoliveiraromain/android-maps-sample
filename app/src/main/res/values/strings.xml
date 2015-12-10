@@ -7,12 +7,116 @@
     <string name="navigation_drawer_summary">Application Android Démo Bison Futé </string>
 
     <string name="action_settings">Paramètres</string>
+    <string name="setting_1">Réglage  1</string>
+    <string name="setting_2">Réglage  2</string>
+    <string name="setting_3">Réglage  3</string>
+    <string name="setting_4">Réglage  4</string>
+    <string name="setting_5">Réglage  5</string>
+    <string name="setting_6">Réglage  6</string>
+    <string name="setting_7">Réglage  7</string>
+    <string name="setting_8">Réglage  8</string>
 
 
     <string name="nav_view_location">Localisation</string>
     <string name="nav_view_traffic">Trafic</string>
     <string name="nav_view_events">Evènements</string>
-
+    <string name="nav_view_mentions">Mentions</string>
+    <string name="nav_view_date">Autre date</string>
     <string name="nav_view_settings">Paramètres</string>
     <string name="title_activity_settings">Paramètres</string>
+    <string name="title_activity_mention">Mentions légales</string>
+
+
+    <string name="gestionnaire">Gestionnaire</string>
+    <string name="gestionnaire_text">Ministère de l’Écologie, du Développement durable et de l’Énergie Direction générale des infrastructures, des transports et de la mer Direction des infrastructures de transport Sous-direction de la gestion du réseau routier non concédé et du trafic Tour Sequoia – 92055 LA DEFENSE CEDEX 04 Téléphone : 01 40 81 21 22 Division transport du Centre national d’information routière 111 rue Camélinat - 93110 ROSNY-SOUS-BOIS Téléphone : 01 48 12 44 44</string>
+    <string name="director">Directeur de la publication</string>
+    <string name="director_text">Christophe Saintillan Directeur des infrastructures de transport Tour Sequoia – 92055 LA DEFENSE CEDEX 04</string>
+    <string name="responsable">Responsable éditorial</string>
+    <string name="responsable_text">Dominique Lerouvillois Chef du bureau de l’information routière et des systèmes d’information Tour Sequoia – 92055 LA DEFENSE CEDEX 04</string>
+    <string name="contact">Contact</string>
+    <string name="contact_text">Pour toute remarque sur la qualité de ce site ou toute suggestion concernant son évolution, utilisez le formulaire de la page Contact</string>
+    <string name="hebergeur">Centre hébergeur</string>
+    <string name="hebergeur_text">Ministère de l’Écologie, du Développement durable et de l’Énergie Secrétariat général Centre de prestations et d’ingénierie informatiques Département opérationnel chargé de l’infrastructure de production (SG/CPII/DOIP) CS 60013 – 33166 SAINT-MEDARD-EN-JALLES CEDEX</string>
+    <string name="credits">Crédits</string>
+    <string name="credits_text">Site réalisé avec le gestionnaire de contenu SPIP, programme Open Source sous licence GNU/GPL.
+Fonds cartographiques France Raster v4 distribués par Esri France / IGN.</string>
+    <string name="property">Propriété intellectuelle</string>
+    <string name="property_text">Les contenus présentés sur ce site sont soumis à la législation relative au droit des informations publiques et sont couverts par le droit d’auteur. Aux termes de l’article L.122-4 du code de la propriété intellectuelle, toute reproduction est interdite sans autorisation expresse préalable.</string>
+    <string name="links">Liens hypertextes vers le site Bison Futé</string>
+    <string name="links_text">Tout site public ou privé est autorisé à établir, sans autorisation préalable, un lien vers les informations diffusées sur le site de Bison Futé. En revanche, les pages du site Bison Futé ne doivent pas être imbriquées à l’intérieur des pages d’un autre site.
+L’autorisation de mise en place d’un lien est valable pour tout support, à l’exception de ceux diffusant des informations à caractère polémique, pornographique, xénophobe ou pouvant, dans une plus large mesure, porter atteinte à la sensibilité du plus grand nombre.</string>
+    <string name="responsability">Responsabilité du ministère</string>
+    <string name="responsability_text">Les informations proposées sur ce site le sont au titre de service rendu au public. Malgré tout le soin apporté à leur actualisation , les informations et documents mis en ligne ne sauraient engager la responsabilité du ministère de l’Écologie, du Développement durable et de l’Énergie. Il ne pourra en aucun cas être tenu responsable de tout dommage de quelque nature qu’il soit résultant de l’interprétation ou de l’utilisation des informations et/ou documents disponibles sur ce site.</string>
+    <string name="dispo">Disponibilité du site</string>
+    <string name="dispo_text">L’éditeur s’efforce de permettre l’accès du site 24h sur 24 , 7 jours sur 7, sauf en cas de force majeure ou d’un événement hors du contrôle du ministère de l’Écologie, du Développement durable et de l’Énergie, et sous réserve des éventuelles pannes et interventions de maintenance, nécessaires au bon fonctionnement du site et des services.
+Par conséquent, le ministère de l’Écologie, du Développement durable et de l’Énergie ne peut garantir du site et/ou des services, une fiabilité des transmissions et des performances en termes de temps de réponse ou de qualité. Il n’est prévu aucune assistance technique vis-à-vis de l’utilisateur, que ce soit par des moyens électronique ou téléphonique.
+La responsabilité de l’éditeur ne saurait être engagée en cas d’impossibilité d’accès à ce site et/ou d’utilisation des services
+Le ministère de l’Écologie, du Développement durable et de l’Énergie peut être amené à interrompre le site ou une partie des services, à tout moment et sans préavis, le tout sans droit à indemnités. L’utilisateur reconnaît et accepte que le ministère de l’Ecologie, du Développement durable et de l’Energie ne soit pas responsable des interruptions et des conséquences qui peuvent en découler pour lui-même ou tout tiers.</string>
+    <string name="lorem_ipsum">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut quam convallis, volutpat augue eget, fermentum metus. Nullam eget tristique lacus. Nullam non maximus quam. Nulla sed metus at nunc volutpat efficitur. Pellentesque vehicula fermentum augue, ac interdum lectus dapibus ac. Aenean nec semper erat. Nunc ac mi tempor, laoreet augue ut, fringilla lacus. Praesent quis diam rhoncus, tempus lorem ut, tempor urna. Mauris condimentum, erat a blandit eleifend, tellus nisi vulputate odio, at porttitor sem ligula vel nisl.
+Sed sagittis enim tellus, at viverra ligula laoreet eu. Mauris congue dolor in lacinia ultrices. Mauris vel tortor eros. Sed ut sollicitudin ex, vel sagittis ligula. Aenean nec arcu purus. Sed sagittis turpis sed arcu tincidunt congue. Ut consectetur turpis vel turpis accumsan, sed euismod enim posuere. Mauris pharetra dolor nec cursus placerat. In vitae tortor tristique, pretium est ac, dapibus metus. Nunc vel condimentum neque.
+Nullam a suscipit purus. In et placerat nunc. Sed porttitor nisl vitae nulla ornare aliquam. Vivamus sapien lorem, scelerisque id arcu ultrices, auctor mattis ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum varius leo a metus finibus, sit amet feugiat lorem accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum consequat, purus at euismod aliquet, metus mauris porttitor lorem, mattis pretium purus velit faucibus lacus.
+Aenean at eros feugiat, lobortis nisl et, cursus dolor. Sed fringilla nunc risus, rhoncus vehicula neque posuere eu. Duis augue augue, elementum sit amet arcu sed, luctus mattis nisi. Fusce dignissim ac purus eu egestas. Duis laoreet quam aliquam nulla suscipit, hendrerit semper tellus convallis. Proin ullamcorper id quam a interdum. Etiam efficitur sit amet risus sit amet ultricies. Proin efficitur euismod erat, eu tincidunt urna feugiat vel. Curabitur libero dolor, bibendum at sem eget, viverra mattis est. Praesent volutpat eros id feugiat iaculis. Aenean massa arcu, finibus non leo quis, facilisis rhoncus libero. Praesent vitae ultricies urna, a molestie risus. Curabitur eget ligula ultricies, auctor mi sit amet, cursus nisi.
+Maecenas vehicula felis diam, a facilisis nisi rhoncus non. Nam quis elementum enim. Maecenas mattis leo vel tellus finibus, vel ullamcorper nisi luctus. Sed cursus scelerisque ornare. Praesent euismod sapien volutpat gravida blandit. Aenean ligula velit, scelerisque in eros ut, vulputate suscipit quam. Fusce lobortis mi sit amet justo pulvinar, a sagittis neque iaculis. In a eros quis velit suscipit facilisis feugiat ac massa. </string>
+    <string name="title_activity_settings2">Settings2</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+
+
 </resources>
