@@ -2,15 +2,11 @@ package i2.application.bisonfute.demo;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
-import android.content.Intent;
 import android.location.Location;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -32,8 +28,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -178,13 +172,16 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             displayEvents(!this.isEventsDisplayed);
 
 
-        } else if (id == R.id.nav_settings) {
-            AnimUtils.startActivityWithAnimation(MainActivity.this, SettingsActivity.class);
+        } else if (id == R.id.nav_conditions) {
+            AnimUtils.startActivityWithAnimation(MainActivity.this, ConditionsActivity.class);
 
         } else if (id == R.id.nav_mentions) {
             AnimUtils.startActivityWithAnimation(MainActivity.this, MentionsLegalesActivity.class);
 
         } else if (id == R.id.nav_date) {
+
+        } else if (id == R.id.nav_settings) {
+            AnimUtils.startActivityWithAnimation(MainActivity.this, PreferenceActivity.class);
 
         }
         if (id == R.id.nav_traffic || id == R.id.nav_events) {
@@ -343,7 +340,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            AnimUtils.startActivityWithAnimation(MainActivity.this, SettingsActivity.class);
+            AnimUtils.startActivityWithAnimation(MainActivity.this, PreferenceActivity.class);
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -57,7 +57,7 @@
         android:id="@+id/fabActMentions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_book_black_24dp"
+        android:src="@drawable/ic_book_white_24dp"
         app:backgroundTint="@color/colorPrimary"
         app:layout_anchor="@id/app_bar_mentions"
         app:layout_anchorGravity="bottom|right|end" />

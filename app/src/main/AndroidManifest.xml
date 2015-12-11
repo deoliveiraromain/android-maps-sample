@@ -40,8 +40,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
+            android:name=".ConditionsActivity"
+            android:label="@string/title_activity_conditions"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -52,6 +52,7 @@
             android:name=".MentionsLegalesActivity"
             android:label="@string/title_activity_mention"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PreferenceActivity"></activity>
     </application>
 
 </manifest>

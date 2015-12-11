@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="i2.application.bisonfute.demo.SettingsActivity">
+    tools:context=".ConditionsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_settings"
@@ -51,7 +51,7 @@
         android:background="@color/white"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <include layout="@layout/content_settings" />
+        <include layout="@layout/content_conditions" />
 
     </android.support.v4.widget.NestedScrollView>
 
@@ -59,7 +59,7 @@
         android:id="@+id/fabSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_setting_dark"
+        android:src="@drawable/ic_directions_car_white_24dp"
         app:backgroundTint="@color/colorPrimary"
         app:layout_anchor="@id/app_bar_settings"
         app:layout_anchorGravity="bottom|right|end" />

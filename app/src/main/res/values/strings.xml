@@ -21,9 +21,10 @@
     <string name="nav_view_traffic">Trafic</string>
     <string name="nav_view_events">Evènements</string>
     <string name="nav_view_mentions">Mentions</string>
+    <string name="nav_view_conditions">Conditions</string>
     <string name="nav_view_date">Autre date</string>
     <string name="nav_view_settings">Paramètres</string>
-    <string name="title_activity_settings">Paramètres</string>
+    <string name="title_activity_conditions">Conditions de circulation</string>
     <string name="title_activity_mention">Mentions légales</string>
 
 

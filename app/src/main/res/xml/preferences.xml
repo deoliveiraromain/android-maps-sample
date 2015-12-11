@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:title="Votre Nom"
+        android:key="username"
+        android:summary="Merci de renseigner votre nom"/>
+    <CheckBoxPreference android:title="Mise à jour de l'application"
+        android:defaultValue="false"
+        android:summary="Notifier lorsqu'une nouvelle version est disponible."
+        android:key="applicationUpdates" />
+    <ListPreference     android:title="Détails téléchargement"
+        android:summary="Sélectionnez le type de données que vous souhaitez télécharger."
+        android:key="downloadType"
+        android:defaultValue="1"
+        android:entries="@array/listArray"
+        android:entryValues="@array/listValues" />
+    <SwitchPreference android:title="Détection de position"
+        android:summary="Mettre à jour automatiquement la position"
+        android:textColorHint="@color/colorPrimaryDark"/>
+</PreferenceScreen>
