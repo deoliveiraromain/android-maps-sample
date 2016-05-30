@@ -1,2 +1,2 @@
 # bf-android-sample
-Un exemple d'intégration de Map pour l'étude d'un portage mobile de BF.
+Un exemple d'intÃ©gration de Map pour l'Ã©tude d'un portage mobile de BF.
